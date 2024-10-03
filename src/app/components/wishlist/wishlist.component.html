@@ -1,1 +1,9 @@
-<p>wishlist works!</p>
+<div class="container mx-auto mt-8">
+  <h2 class="text-2xl font-bold mb-6">Your Wishlist</h2>
+  <div *ngIf="(wishlist$ | async) as wishlist; else noItems">
+    <app-book-card [books]="wishlist"></app-book-card>
+  </div>
+  <ng-template #noItems>
+    <p>Your wishlist is empty.</p>
+  </ng-template>
+</div>
